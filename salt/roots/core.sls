@@ -3,3 +3,7 @@ vim:
 
 git:
   pkg.installed
+
+# Friendly Interactive SHell
+fish:
+  pkg.installed
