@@ -5,7 +5,7 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "hashicorp/precise32"
+  config.vm.box = "chef/ubuntu-14.04"
 
    config.vm.provider "virtualbox" do |vb|
      # Don't boot with headless mode
