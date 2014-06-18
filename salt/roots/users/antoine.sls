@@ -17,3 +17,9 @@ https://github.com/antoinealb/dotvim:
     - target: /home/antoine/.vim/vimrc
     - user: antoine
     - mode: 644
+
+/home/antoine/config.fish:
+  file.managed:
+    - source: salt://config.fish
+    - user: antoine
+    - mode: 644
