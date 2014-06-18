@@ -18,7 +18,7 @@ https://github.com/antoinealb/dotvim:
     - user: antoine
     - mode: 644
 
-/home/antoine/config.fish:
+/home/antoine/.config/fish/config.fish:
   file.managed:
     - source: salt://config.fish
     - user: antoine
