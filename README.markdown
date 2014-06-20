@@ -1,6 +1,7 @@
 # CVRA-dev Virtual Machine
 
 Installing this VM requires :
+
 1. A working internet connection.
 2. `vagrant`
 3. `virtualbox`
