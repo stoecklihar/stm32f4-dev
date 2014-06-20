@@ -18,8 +18,18 @@ https://github.com/antoinealb/dotvim:
     - user: antoine
     - mode: 644
 
+https://github.com/antoinealb/dotfiles:
+  git.latest:
+    - target: /home/antoine/dotfiles
+
 /home/antoine/.config/fish/config.fish:
-  file.managed:
-    - source: salt://config.fish
+  file.symlink:
+    - target: /home/antoine/dotfiles/config.fish
+    - user: antoine
+    - mode: 644
+
+/home/antoine/.gitconfig:
+  file.symlink:
+    - target: /home/antoine/dotfiles/gitconfig
     - user: antoine
     - mode: 644
