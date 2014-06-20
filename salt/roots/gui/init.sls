@@ -1,0 +1,2 @@
+xubuntu-desktop:
+  pkg.installed
