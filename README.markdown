@@ -17,7 +17,7 @@ Next time you want to use it, `vagrant up` will be much faster because it will j
 ## Initial config
 Sadly there is still a few things to do by hand :
 
-1. Enable non free drivers for Virtualbox by going to `Settings Manager -> Additional Drivers` and choosing "Continue using a manually installed driver."
+1. Enable non free drivers for Virtualbox by going to `Settings Manager -> Additional Drivers` and choosing "Continue using a manually installed driver". You should now have a much better resolution available when going to `Settings Manager -> Display`.
 2. Configure your keyboard layout in `Settings Manager -> Input Manager -> Input Method -> Add` and add a swiss keyboard.
 
 ## Updating the VM
