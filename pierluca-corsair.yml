@@ -1,0 +1,8 @@
+directories:
+    cvra:
+        host: 'G:/projects/cvra'
+        guest: '/mnt/cvra/'
+
+    cygwin:
+        host: 'C:/cygwin/'
+        guest: '/mnt/cygwin/'
