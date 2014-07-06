@@ -1,6 +1,10 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
+require 'yaml'
+
 VAGRANTFILE_API_VERSION = "2"
+
+params = YAML.load_file 'default.yml'
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.box = "chef/ubuntu-14.04"
@@ -11,6 +15,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end  
     # Add a shared folder for Saltstack states
     config.vm.synced_folder "salt/roots/", "/srv/salt/"
+
+    if params.is_a?(Hash) and params.has_key?('directories')
+        params['directories'].each do |key, dir|
+            puts "Custom synced directory #{key} : #{dir['host']}"
+            config.vm.synced_folder "#{dir['host']}", "#{dir['guest']}"
+        end
+    end
 
     config.vm.provision :salt do |salt|
         salt.minion_config = "salt/minion"
