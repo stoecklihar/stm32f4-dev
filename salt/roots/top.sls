@@ -4,4 +4,5 @@ base:
     - users
     - gui
     - dev-cpp
+    - dev-python
 
