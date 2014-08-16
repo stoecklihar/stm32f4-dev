@@ -9,14 +9,5 @@ cmake:
 libcpputest-dev:
   pkg.installed
 
-
-# Arm toolchain repository
-
-toolchain:
-  pkgrepo.managed:
-    - ppa: terry.guo/gcc-arm-embedded
-
-  pkg.latest:
-    - name: gcc-arm-none-eabi
-
-
+include:
+  - .arm-toolchain
