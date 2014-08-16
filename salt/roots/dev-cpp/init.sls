@@ -9,5 +9,5 @@ cmake:
 libcpputest-dev:
   pkg.installed
 
-
-
+include:
+  - .arm-toolchain
