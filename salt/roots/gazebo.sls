@@ -9,5 +9,8 @@ gazebo.gpg:
     - name: 'wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -'
     - unless: 'apt-key list | grep osrfoundation.org'
 
+gazebo4:
+  pkg.installed
+
 
 
