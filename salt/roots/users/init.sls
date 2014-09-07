@@ -7,3 +7,4 @@ include:
   - .antoine
   - .pierluca
   - .patrick
+  - .froj
