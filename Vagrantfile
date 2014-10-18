@@ -20,7 +20,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         if params.is_a?(Hash) and params.has_key?('directories')
             params['directories'].each do |key, dir|
                 puts "Custom synced directory #{key} : #{dir['host']}"
-                config.vm.synced_folder "#{dir['host']}", "#{dir['guest']}"
+                config.vm.synced_folder "#{dir['host']}", "#{dir['guest']}", mount_options: ["dmode=777", "fmode=776"]
             end
         end
     end
