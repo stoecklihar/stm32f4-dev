@@ -1,4 +1,4 @@
 virtualbox-guest-dkms:
   pkg.installed
-xubuntu-desktop:
+ubuntu-desktop:
   pkg.installed
