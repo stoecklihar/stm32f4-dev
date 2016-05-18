@@ -25,10 +25,10 @@ openocd:
     - cwd: /usr/src/openocd
     - user: root
     - name: |
-      ./bootstrap
-      ./configure --prefix=/usr/local
-      make
-      make install
+        ./bootstrap
+        ./configure --prefix=/usr/local
+        make
+        make install
     - creates: /usr/local/bin/openocd
 
 /etc/udev/rules.d/90-openocd.rules:

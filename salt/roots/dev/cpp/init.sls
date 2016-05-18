@@ -30,11 +30,11 @@ cpputest:
     - cwd: /usr/src/cpputest
     - user: root
     - name: |
-      cd cpputest_build
-      autoreconf .. -i
-      ../configure
-      make
-      make install
+        cd cpputest_build
+        autoreconf .. -i
+        ../configure
+        make
+        make install
     - creates: /usr/local/lib/libCppUTest.a
 
 include:
