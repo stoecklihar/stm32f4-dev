@@ -32,6 +32,7 @@ openocd:
     - creates: /usr/local/bin/openocd
     - require:
         - pkg: libtool
+        - pkg: libusb-1.0-0-dev
         - pkg: automake
         - pkg: autoconf
 
