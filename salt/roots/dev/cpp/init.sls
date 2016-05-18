@@ -18,6 +18,13 @@ automake:
 libtool:
   pkg.installed
 
+packager:
+  pip.installed:
+    - name: cvra-packager >= 1.0, < 1.1
+    - bin_env: /usr/bin/pip3
+    - require:
+      - pkg: python3-pip
+      - pkg: python-pip
 
 # Install Cpputest from source
 git://github.com/cpputest/cpputest.git:
