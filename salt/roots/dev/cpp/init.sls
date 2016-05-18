@@ -15,6 +15,9 @@ autoconf:
 automake:
   pkg.installed
 
+libtool:
+  pkg.installed
+
 
 # Install Cpputest from source
 git://github.com/cpputest/cpputest.git:
@@ -30,12 +33,17 @@ cpputest:
     - cwd: /usr/src/cpputest
     - user: root
     - name: |
+        mkdir -p cpputest_build
         cd cpputest_build
         autoreconf .. -i
         ../configure
         make
         make install
     - creates: /usr/local/lib/libCppUTest.a
+    - require:
+        - pkg: libtool
+        - pkg: automake
+        - pkg: autoconf
 
 include:
   - .arm-toolchain

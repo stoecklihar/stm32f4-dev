@@ -30,6 +30,10 @@ openocd:
         make
         make install
     - creates: /usr/local/bin/openocd
+    - require:
+        - pkg: libtool
+        - pkg: automake
+        - pkg: autoconf
 
 /etc/udev/rules.d/90-openocd.rules:
   file.managed:
