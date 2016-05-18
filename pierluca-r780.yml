@@ -1,8 +1,0 @@
-directories:
-    cvra:
-        host: 'C:/Users/Pilu/projects/cvra'
-        guest: '/mnt/cvra/'
-
-    cygwin:
-        host: 'C:/cygwin/'
-        guest: '/mnt/cygwin/'
