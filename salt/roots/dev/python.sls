@@ -20,3 +20,6 @@ python3-pip:
 
 python-pip:
   pkg.installed
+
+python-serial:
+  pkg.installed
