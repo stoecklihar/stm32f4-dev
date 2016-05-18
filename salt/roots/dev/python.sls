@@ -15,3 +15,5 @@ python3-matplotlib:
 python-matplotlib: # for python 2.x
   pkg.installed
 
+python3-pip:
+  pkg.installed
