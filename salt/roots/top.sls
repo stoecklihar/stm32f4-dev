@@ -4,3 +4,4 @@ base:
     - gui
     - dev.cpp
     - dev.python
+    - aseba
