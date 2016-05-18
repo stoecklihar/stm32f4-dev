@@ -2,5 +2,5 @@ base:
   '*':
     - core
     - gui
-    - dev-cpp
-    - dev-python
+    - dev.cpp
+    - dev.python
