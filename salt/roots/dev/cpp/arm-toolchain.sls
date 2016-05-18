@@ -9,4 +9,6 @@ arm-toolchain:
 gcc-arm-embedded:
   pkg.installed
 
+dfu-util:
+    pkg.installed
 
