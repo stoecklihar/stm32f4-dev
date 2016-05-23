@@ -19,3 +19,7 @@ libusb-1.0-0-dev:
     file.managed:
         - source: salt://etc/release-upgrades
 
+# Install kernel from Ubuntu 16.04 because the builtin one does not work with
+# USB CDC serial ports
+linux-generic-lts-xenial:
+    pkg.installed
