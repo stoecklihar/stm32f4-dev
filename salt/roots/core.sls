@@ -7,6 +7,9 @@ git:
 mercurial:
   pkg.installed
 
+coreutils:
+  pkg.installed
+
 # Friendly Interactive SHell
 fish:
   pkg.installed

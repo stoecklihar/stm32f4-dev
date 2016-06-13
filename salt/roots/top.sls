@@ -1,6 +1,7 @@
 base:
   '*':
     - core
+    - swap
     - users
     - gui
     - dev.cpp
