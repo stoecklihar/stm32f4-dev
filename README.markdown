@@ -1,4 +1,4 @@
-# CVRA-dev Virtual Machine
+# EPuck 2 dev virtual machine
 
 Installing this VM requires :
 
