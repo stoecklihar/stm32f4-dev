@@ -26,6 +26,30 @@ packager:
       - pkg: python3-pip
       - pkg: python-pip
 
+uncrustify:
+  pkg.removed: []
+  git.latest:
+    - name: https://github.com/uncrustify/uncrustify
+    - rev: uncrustify-0.64
+    - target: /usr/src/uncrustify
+    - user: root
+    - require:
+      - pkg: git
+
+  cmd.run:
+    - cwd: /usr/src/uncrustify
+    - user: root
+    - name: |
+        mkdir -p build
+        cd build
+        cmake ..
+        make
+        make install
+    - creates: /usr/local/bin/uncrustify
+    - require:
+      - pkg: cmake
+      - pkg: build-essential
+
 # Install Cpputest from source
 cpputest:
   pkg.removed: []
