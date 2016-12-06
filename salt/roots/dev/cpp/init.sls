@@ -27,15 +27,16 @@ packager:
       - pkg: python-pip
 
 # Install Cpputest from source
-git://github.com/cpputest/cpputest.git:
+cpputest:
+  pkg.removed: []
   git.latest:
+    - name: git://github.com/cpputest/cpputest.git
     - rev: v3.7.1
     - target: /usr/src/cpputest
     - user: root
     - require:
       - pkg: git
 
-cpputest:
   cmd.run:
     - cwd: /usr/src/cpputest
     - user: root
