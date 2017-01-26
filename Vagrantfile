@@ -5,7 +5,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-    config.vm.box = "ubuntu/trusty32"
+    config.vm.box = "ubuntu/trusty64"
     config.vm.provider "virtualbox" do |vb|
         vb.gui = true
         vb.memory = 1024
@@ -15,6 +15,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
     # Add a shared folder for Saltstack states
     config.vm.synced_folder "salt/roots/", "/srv/salt/"
+    config.vm.synced_folder "../projects", "/srv/projects/"
 
     config.vm.provision :salt do |salt|
         salt.minion_config = "salt/minion"
@@ -25,6 +26,3 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         salt.verbose = true
     end
 end
-
-
-
