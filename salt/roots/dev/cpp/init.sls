@@ -18,6 +18,9 @@ automake:
 libtool:
   pkg.installed
 
+codeblocks:
+  pkg.installed
+
 packager:
   pip.installed:
     - name: cvra-packager >= 1.0, < 1.1
