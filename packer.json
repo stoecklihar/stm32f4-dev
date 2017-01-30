@@ -1,0 +1,79 @@
+{
+    "variables": {
+        "hostname": "stm32-dev"
+    },
+
+    "builders": [{
+        "type": "virtualbox-iso",
+        "guest_os_type": "Ubuntu",
+        "vm_name": "STM32_dev",
+
+        "vboxmanage": [
+            ["modifyvm", "{{.Name}}", "--vram", "32"],
+            ["modifyvm", "{{.Name}}", "--memory", "1024"],
+            ["modifyvm", "{{.Name}}", "--usb", "on"],
+            ["modifyvm", "{{.Name}}", "--usbehci", "on"]
+        ],
+
+        "disk_size" : 10000,
+
+        "iso_url": "http://releases.ubuntu.com/14.04/ubuntu-14.04.5-server-i386.iso",
+        "iso_checksum_url": "http://releases.ubuntu.com/14.04/MD5SUMS",
+        "iso_checksum_type": "md5",
+
+        "guest_additions_path": "disable",
+
+        "http_directory" : ".",
+
+        "ssh_username": "epfl",
+        "ssh_password": "epfl",
+        "ssh_wait_timeout": "20m",
+
+        "shutdown_command": "echo epfl | sudo -S shutdown -P now",
+
+        "boot_command" : [
+            "<esc><esc><enter><wait>",
+            "/install/vmlinuz noapic ",
+            "preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg ",
+            "debian-installer=en_US auto locale=en_US kbd-chooser/method=us ",
+            "hostname={{user `hostname`}} ",
+            "fb=false debconf/frontend=noninteractive ",
+            "keyboard-configuration/modelcode=SKIP keyboard-configuration/layout=USA ",
+            "keyboard-configuration/variant=USA console-setup/ask_detect=false ",
+            "initrd=/install/initrd.gz -- <enter>"
+        ]
+    }],
+
+    "provisioners": [
+        {
+            "type": "shell",
+            "script": "install_deps.sh",
+            "execute_command": "chmod +x {{ .Path }}; echo 'epfl' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'"
+        },
+        {
+            "type": "shell",
+            "execute_command": "echo 'epfl' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
+            "inline": [
+                "echo '%sudo    ALL=(ALL)  NOPASSWD:ALL' >> /etc/sudoers"
+            ]
+        },
+        {
+            "type": "salt-masterless",
+            "local_state_tree": "./salt/roots",
+            "bootstrap_args": "-F -c /tmp/ -b -P git 2016.3"
+        }
+    ],
+    "post-processors": [
+        [
+            {
+                "type": "compress",
+                "output": "stm32_dev_vm.zip"
+            },
+            {
+                "type": "checksum",
+                "checksum_types": ["md5"],
+                "output": "stm32_dev_vm.zip.checksum"
+            }
+        ]
+    ]
+}

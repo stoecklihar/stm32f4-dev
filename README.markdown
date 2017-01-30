@@ -31,3 +31,14 @@ vagrant up --provision # Boot and tell Vagrant to apply the new config
 
 ## De-installing
 Running `vagrant destroy` will remove every file Vagrant used for this box.
+
+## Building for distribution
+
+This repository also includes a [Packer](https://www.packer.io/) build script.
+Using the Packer build creates the VM from an Ubuntu install CD and setups it for development.
+The machine is then exported as a VirtualBox file (compressed as `.zip`), which can easily be distributed without requiring additional setup.
+The build can be run by running `packer build packer.json`.
+
+The resulting image should be treated as "frozen";
+do not modify it by hand (e.g., by adding packages): instead change the configuration, then rebuild it from scratch.
+This also implies that users of the image must re-download it completely.

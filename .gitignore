@@ -1,1 +1,5 @@
-.vagrant/*
+.vagrant
+
+# Packer output file
+packer_cache
+stm32_dev*
