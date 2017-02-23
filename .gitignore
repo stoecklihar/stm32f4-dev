@@ -1,4 +1,5 @@
 .vagrant
+directories.yml
 
 # Packer output file
 packer_cache

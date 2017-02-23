@@ -14,6 +14,22 @@ This can take some time (up to an hour if internet connection is slow), so you m
 When you are done with the VM, simply run `vm halt` to shutdown it.
 Next time you want to use it, `vagrant up` will be much faster because it will just boot the already-configured VM.
 
+## Custom shared dirs
+
+In order to create custom shared directories, create a file named `directories.yml` containing the sharing specifications:
+
+```yaml
+# directories.yml
+directories:
+  - host: '~/Code' # folder on your pc
+    guest: '/mnt/code/' # folder on the VM
+  - host: '~/Schematics'
+    guest: '/mnt/elec/'
+```
+
+*Note:* This is not reflected in Packer's output virtual machine, as Packer does not touch the machine at runtime.
+To add custom shared folder in the Packer-built VM, use the VirtualBox GUI.
+
 ## Initial config
 Sadly there is still a few things to do by hand :
 
