@@ -21,7 +21,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     if File.file?('directories.yml')
         params = YAML.load_file 'directories.yml'
         if params.is_a?(Hash) and params.has_key?('directories')
-            puts params
             params['directories'].each do |dir|
                 puts "Custom synced directory : #{dir['host']}"
                 config.vm.synced_folder "#{dir['host']}", "#{dir['guest']}", mount_options: ["dmode=777", "fmode=776"]
